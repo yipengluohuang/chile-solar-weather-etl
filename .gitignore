@@ -1,0 +1,33 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# 运行时锁和自动生成文件
+runtime/*.lock
+logs/*.log
+logs/*.log.*
+data/raw/*.json
+data/clean/*.csv
+data/clean/*.xlsx
+outputs/*.csv
+
+# 常见临时文件
+*.tmp
+*.temp
+*.bak
+*~
+Thumbs.db
+.DS_Store
+
+# Power BI 本地缓存和自动恢复文件；不忽略正式 .pbix 文件
+powerbi/.cache/
+*.pbix.autorecovery
+*.pbix.tmp
+
+# 手动上传到 ChatGPT、云盘或 GitHub Release 的本地导出包
+exports/*.zip

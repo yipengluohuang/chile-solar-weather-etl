@@ -1,0 +1,51 @@
+// 在 Power BI 中选择“新建度量值”，逐条建立以下度量值。
+// 表名和字段名与 V4 MySQL 视图保持一致。
+
+Total Radiation =
+SUM('vw_weather_daily'[shortwave_radiation_mj_m2])
+
+Average Sunshine Hours =
+AVERAGE('vw_weather_daily'[sunshine_duration_hours])
+
+Average Maximum Temperature =
+AVERAGE('vw_weather_daily'[temperature_max_c])
+
+Total Precipitation =
+SUM('vw_weather_daily'[precipitation_mm])
+
+Rainy Days =
+CALCULATE(
+    DISTINCTCOUNT('vw_weather_daily'[date]),
+    'vw_weather_daily'[precipitation_mm] > 0
+)
+
+Latest Data Date =
+MAX('vw_weather_daily'[date])
+
+Data Age Days =
+MAX('vw_data_freshness'[data_age_days])
+
+Last Pipeline Status =
+SELECTEDVALUE('vw_latest_pipeline_run'[status], "NO DATA")
+
+Last Successful Run =
+CALCULATE(
+    MAX('vw_pipeline_run_history'[finished_at]),
+    'vw_pipeline_run_history'[status] = "SUCCESS"
+)
+
+Pipeline Success Rate =
+VAR RecentRuns =
+    TOPN(
+        30,
+        ALL('vw_pipeline_run_history'),
+        'vw_pipeline_run_history'[run_id], DESC
+    )
+RETURN
+    DIVIDE(
+        SUMX(RecentRuns, 'vw_pipeline_run_history'[success_flag]),
+        COUNTROWS(RecentRuns)
+    )
+
+Total Data Days =
+DISTINCTCOUNT('vw_weather_daily'[date])
