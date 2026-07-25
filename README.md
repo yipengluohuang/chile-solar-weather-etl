@@ -273,8 +273,3 @@ CSV和Excel只由 MySQL 全量回读结果生成，因此数据库是 V4历史�
 
 截图不得包含 `.env`、数据库密码、私人路径中的敏感信息或账号凭据。
 
-## 作品集与面试材料
-
-- `docs/interview_questions.md`：15个项目问答。
-- `docs/resume_project_entry.md`：中文、西班牙语和英文简历描述。
-- `CHANGELOG.md`：版本变更记录。
