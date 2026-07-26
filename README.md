@@ -262,11 +262,33 @@ CSV和Excel只由 MySQL 全量回读结果生成，因此数据库是 V4历史�
 - 没有在本项目中生成或验证真实 `.pbix`，Power BI Service和网关需用户手动配置。
 - 无 Docker、异步框架、预测模型或云端 CI。
 
-## 作品集截图占位
+## Power BI Dashboard
 
-发布到 GitHub 前可在 `docs/images/` 手动加入已脱敏截图，并在此处引用：
+This project includes an interactive Power BI dashboard designed to analyze solar resources, weather conditions, and ETL pipeline health for Antofagasta, Chile.
 
-- 管道连续两次成功运行摘要。
+### 1. Executive Overview
+
+Provides a high-level summary of the main solar and weather indicators, allowing users to quickly assess recent conditions and overall data status.
+
+![Executive Overview](dashboard/executive_overview.png)
+
+### 2. Daily Weather & Solar Analysis
+
+Provides a detailed daily view of solar radiation, sunshine duration, temperature, and related weather indicators for trend analysis.
+
+![Daily Weather and Solar Analysis](dashboard/daily_weather_solar_analysis.png)
+
+### 3. Pipeline Health
+
+Monitors ETL pipeline execution, data freshness, and data quality indicators to verify that the analytical dataset remains reliable and up to date.
+
+![Pipeline Health](dashboard/pipeline_health.png)
+
+### Power BI Report
+
+The complete Power BI report file is available here:
+
+[Download the Power BI report (.pbix)](dashboard/Antofagasta_Solar_Weather_Dashboard.pbix)
 - DataGrip 的月度视图和重复键检查。
 - Power BI Executive Overview、Daily Analysis、Pipeline Health 三个页面。
 - Windows任务计划程序状态。
